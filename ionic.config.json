@@ -1,0 +1,7 @@
+{
+  "name": "gotouch.tec.juncos",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
