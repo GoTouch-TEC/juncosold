@@ -6,13 +6,47 @@
 
 <ion-content>
 
-  <ul>
+  <!--<ul>
     <li  *ngFor="let event of events" >
       {{event | json}}
     </li>
-  </ul>
+  </ul> -->
 
-  
+  <ion-list>
+    <ion-item *ngFor="let event of events" >
+      <ion-card>
+        <ion-item>
+          <ion-list>
+            <ion-item><h2>{{event.data.title}}</h2></ion-item>
+            <ion-item><p>Octubre 5, 2018</p></ion-item>          
+          </ion-list>
+        </ion-item>
+        <ion-card-content>
+          <ion-row>
+            <ion-col col-3>
+              
+              
+                  <img class="team-photo" src="assets/img/{{event.data.team1.icon}}">
+              
+            </ion-col>
+            <ion-col col-2>
+              <p>{{event.data.team1.score}}</p>
+            </ion-col>
+            <ion-col col-2>
+              <p>vs</p>
+            </ion-col>
+            <ion-col col-2>
+              <p>{{event.data.team2.score}}</p>
+            </ion-col>
+            <ion-col col-3>
+                <img  class="team-photo" src="assets/img/{{event.data.team2.icon}}">
+            
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>  
+  </ion-list>
 
 
 </ion-content>
