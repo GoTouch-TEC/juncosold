@@ -4,4 +4,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+
+  <ul>
+    <li  *ngFor="let event of events" >
+      {{event | json}}
+    </li>
+  </ul>
+
+  
+
+
+</ion-content>
