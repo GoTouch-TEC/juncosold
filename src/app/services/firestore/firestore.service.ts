@@ -10,8 +10,13 @@ export class FirestoreService {
   constructor(private firestore: AngularFirestore) { 
 
   }
-  //Obtiene todos los gatos
+  //Obtiene todos los eventos
   public getEvents() {
     return this.firestore.collection('events').snapshotChanges();
+  }
+
+  //Obtiene un evento.
+  public getEvent(id: string){
+    return this.firestore.collection('events').doc(id).snapshotChanges();
   }
 }

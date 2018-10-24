@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../services/firestore/firestore.service';
-
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-about',
   templateUrl: 'about.page.html',
@@ -8,11 +8,14 @@ import { FirestoreService } from '../services/firestore/firestore.service';
 })
 export class AboutPage {
   public events = [];
-  constructor(private firestoreService: FirestoreService) { 
+  constructor(private firestoreService: FirestoreService, private router: Router) { 
     
   }
 
 
+  /**
+   * 
+   */
   ngOnInit() {
     this.firestoreService.getEvents().subscribe((eventsSnapshot) => {
       this.events = [];
@@ -23,5 +26,12 @@ export class AboutPage {
         });
       })
     });
+  }
+ 
+  /**
+   * 
+   */
+  goToMatch(id: string){
+    this.router.navigateByUrl(`single-match/${id}`);
   }
 }

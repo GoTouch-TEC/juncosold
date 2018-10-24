@@ -39,11 +39,15 @@
               <p>{{event.data.team2.score}}</p>
             </ion-col>
             <ion-col col-3>
-                <img  class="team-photo" src="assets/img/{{event.data.team2.icon}}">
+              <img  class="team-photo" src="assets/img/{{event.data.team2.icon}}">
             
             </ion-col>
           </ion-row>
+
+          <ion-button (click)="goToMatch(event.id)">  Ver </ion-button>
+
         </ion-card-content>
+        
       </ion-card>
     </ion-item>  
   </ion-list>
