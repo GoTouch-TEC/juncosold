@@ -1,4 +1,45 @@
+ion-title.header-view{
+    text-align: center;
+} 
+.partial-results-list{
+    width: 100%;
+    ion-row{
+        ion-col{
+            h2.discipline-header{
+                text-align: center;
+            }
+        }
+        ion-col.college-flag{
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
 
+ion-row{
+    ion-col{
+        p.score{
+            margin: 0;
+            text-align: center;
+        }
+    }
+    ion-col.badge-life{
+        display: flex;
+        justify-content: center
+    }
+    ion-col.col-centered{
+        display: flex;
+        justify-content: center;
+    }
+    ion-col.col-left{
+        display: flex;
+        justify-content: left;
+    }
+    ion-col.col-right{
+        display: flex;
+        justify-content: right;
+    }
+}
 .team-photo{
     height: 35px;
     width: auto;

@@ -1,54 +1,60 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>About</ion-title>
+    <ion-title class="header-view">Resultados</ion-title>
   </ion-toolbar>
+  <ion-grid>
+    <ion-row>
+
+      <ion-col col-4 class="col-left"> 
+        <button ion-button icon-only> 
+          <ion-icon name="ios-arrow-back"> </ion-icon>
+        </button>
+      </ion-col>
+
+      <ion-col  col-4 class="col-centered"> HOY </ion-col>
+
+      <ion-col col-4 class="col-right">
+          <button ion-button icon-only> 
+            <ion-icon name="ios-arrow-forward"> </ion-icon>
+          </button>
+      </ion-col>
+
+
+    </ion-row>
+  </ion-grid>
 </ion-header>
 
 <ion-content>
 
-  <!--<ul>
-    <li  *ngFor="let event of events" >
-      {{event | json}}
-    </li>
-  </ul> -->
-
   <ion-list>
     <ion-item *ngFor="let event of events" >
-      <ion-card>
-        <ion-item>
-          <ion-list>
-            <ion-item><h2>{{event.data.title}}</h2></ion-item>
-            <ion-item><p>Octubre 5, 2018</p></ion-item>          
-          </ion-list>
-        </ion-item>
-        <ion-card-content>
-          <ion-row>
-            <ion-col col-3>
-              
-              
-                  <img class="team-photo" src="assets/img/{{event.data.team1.icon}}">
-              
-            </ion-col>
-            <ion-col col-2>
-              <p>{{event.data.team1.score}}</p>
-            </ion-col>
-            <ion-col col-2>
-              <p>vs</p>
-            </ion-col>
-            <ion-col col-2>
-              <p>{{event.data.team2.score}}</p>
-            </ion-col>
-            <ion-col col-3>
-              <img  class="team-photo" src="assets/img/{{event.data.team2.icon}}">
-            
-            </ion-col>
-          </ion-row>
-
-          <ion-button (click)="goToMatch(event.id)">  Ver </ion-button>
-
-        </ion-card-content>
-        
-      </ion-card>
+      
+      <ion-grid class="partial-results-list">
+        <ion-row> <ion-col col-12> <h2 class="discipline-header"> {{event.data.title}} </h2> </ion-col> </ion-row>
+        <ion-row>
+          <ion-col class="college-flag" col-2>
+              <img class="team-photo" src="assets/img/{{event.data.team1.icon}}">
+          </ion-col>
+          <ion-col col-8>
+              <ion-grid>
+                <ion-row> 
+                    <ion-col col-4><p class="score" >{{event.data.team1.score}}</p></ion-col>
+                    <ion-col col-4><p class="score" > <strong> - </strong> </p></ion-col>
+                    <ion-col col-4><p class="score" >{{event.data.team2.score}}</p></ion-col>                 
+                </ion-row>
+                <ion-row> 
+                  <ion-col class="badge-life">
+                      <ion-chip>  <ion-label> en vivo </ion-label>  </ion-chip>
+                  </ion-col> 
+                </ion-row>
+              </ion-grid>
+          </ion-col>
+          <ion-col class="college-flag" col-2>
+              <img class="team-photo" src="assets/img/{{event.data.team2.icon}}">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
     </ion-item>  
   </ion-list>
 
