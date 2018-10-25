@@ -41,6 +41,13 @@ ion-row{
     }
 }
 .team-photo{
-    height: 35px;
+    height: 100px;
     width: auto;
+}
+
+ion-col{
+    ion-gird.scores-container.sc-ion-grid-h.sc-ion-grid-s.hydrated{
+        padding-top: 23%;
+        background: red;
+    }
 }

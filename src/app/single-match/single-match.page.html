@@ -1,9 +1,82 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>single-match</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Resultados</ion-title>
+      </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
- {{event | json}}
+ 
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title>{{single_event.data.discipline.name}}</ion-card-title>
+      <ion-card-subtitle>{{single_event.data.discipline.category}} {{single_event.data.discipline.gender}}  </ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col><img  src="assets/img/{{single_event.data.team1.icon}}"/></ion-col>
+          <ion-col>
+            <ion-grid class="scores-container"> 
+              <ion-row> 
+                  <ion-col class="badge-life">
+                      <ion-chip>  <ion-label> en vivo </ion-label>  </ion-chip>
+                  </ion-col> 
+              </ion-row>
+              <ion-row> 
+                  <ion-col col-4><p class="score" >{{single_event.data.team1.score}}</p></ion-col>
+                  <ion-col col-4><p class="score" > <strong> - </strong> </p></ion-col>
+                  <ion-col col-4><p class="score" >{{single_event.data.team2.score}}</p></ion-col>                 
+              </ion-row>
+              
+            </ion-grid>
+          </ion-col>
+          <ion-col><img  src="assets/img/{{single_event.data.team2.icon}}"/></ion-col>
+        </ion-row>
+        <!-- Date Time -->
+        <ion-row>
+          <ion-col size="1">
+              <ion-icon class="icon-juncos" name="md-time"></ion-icon>
+          </ion-col>
+          <ion-col size="11"> 
+            <p>{{single_event.data.date.seconds | date: "short" }} </p>
+          </ion-col>
+        </ion-row>
+        <!-- Place-->
+        <ion-row>
+            <ion-col size="1"> 
+              <ion-icon class="icon-juncos" name="pin"></ion-icon>
+            </ion-col>
+            <ion-col size="11"> 
+              <p> <strong> {{single_event.data.place.name  }}  </strong></p>
+              <p>{{single_event.data.place.location  }} </p>
+            </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+<hr>
+<h3> Comentarios</h3>
+
+<ion-list>
+  <ion-item *ngFor="let note of single_event.data.notes">
+    <ion-card>
+      <ion-item>
+        <ion-button fill="outline" slot="end">View</ion-button>
+        <ion-label>{{ note.date.seconds * 1000 | date:'medium'}}</ion-label>
+      </ion-item>
+    
+      <ion-card-content>
+        {{note.description}}
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+</ion-list>
+
+  
 </ion-content>
