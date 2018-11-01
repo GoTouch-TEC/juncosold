@@ -8,11 +8,11 @@ before_script:
  - npm install -g ionic cordova
 script:
  - ionic cordova build browser --prod
+ - ls ./platforms/browser
 deploy:
- provider: pages
- skip-cleanup: true
- github-token: $GITHUB_TOKEN 
- keep-history: true
- on:
+  provider: surge
+  skip_cleanup: true
+  domain: juncos.surge.sh
+  project: ./platforms/browser
+on:
    branch: master
- local_dir: www
