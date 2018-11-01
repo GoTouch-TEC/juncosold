@@ -13,6 +13,6 @@ deploy:
   provider: surge
   skip_cleanup: true
   domain: juncos.surge.sh
-  project: ./platforms/browser
+  project: ./platforms/browser/www
 on:
    branch: master
