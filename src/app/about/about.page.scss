@@ -1,5 +1,15 @@
+div.toolbar-container.sc-ion-toolbar-md.sc-ion-toolbar-md-s{
+    background: #666;
+}
+
+.toolbar-background {
+    background-color: blue !important;
+  }
+  
 ion-title.header-view{
     text-align: center;
+    font-size: smaller;
+    color: #666;
 } 
 .partial-results-list{
     width: 100%;
@@ -7,6 +17,8 @@ ion-title.header-view{
         ion-col{
             h2.discipline-header{
                 text-align: center;
+                color: #666;
+                font-size: smaller;
             }
         }
         ion-col.college-flag{
